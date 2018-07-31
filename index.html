@@ -3,19 +3,19 @@
 <head>
 	<meta charset="utf-8">
 	<title>To do using vue</title>
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-	<script src ="script.js" ></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script defer src ="script.js" ></script>
 </head>
 <body>
 <main id="to-do-app">
 	<section id="openTasks">
-		<taskDiv 
+		<task-div 
 			v-for="task in allTasks"
 			:key="task.id"
 			:task="task"
 
 			v-if="task.category === 'open'"
-		></taskDiv>
+		></task-div>
 	</section>
 
 	<section>
@@ -25,13 +25,13 @@
 	</section>
 
 	<section id="closedTasks">
-		<taskDiv
+		<task-div
 			v-for="task in allTasks"
 			:key="task.id"
 			:task="task"
 
 			v-if="task.category === 'closed'"
-		></taskDiv>
+		></task-div>
 	</section>
 </main>
 
