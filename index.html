@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<title>To do using vue</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src ="script.js" ></script>
+</head>
+<body>
+<main id="to-do-app">
+	<section id="openTasks">
+		<taskDiv 
+			v-for="task in allTasks"
+			:key="task.id"
+			:task="task"
+
+			v-if="task.category === 'open'"
+		></taskDiv>
+	</section>
+
+	<section>
+		<div id="newTask">
+			<input type="text" id="addTask" placeholder="+    New Task" v-on:keyup.enter="addNewTask($event.target.value)">
+		</div>
+	</section>
+
+	<section id="closedTasks">
+		<taskDiv
+			v-for="task in allTasks"
+			:key="task.id"
+			:task="task"
+
+			v-if="task.category === 'closed'"
+		></taskDiv>
+	</section>
+</main>
+
+</body>
+</html>
